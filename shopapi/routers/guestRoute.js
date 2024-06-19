@@ -1,0 +1,22 @@
+const {getList,getDetail,getRelated,getByCategory,getByRoom,getBuyTogether,createCart,updateCart,deleteCart,getCart,getSearch,Signup,Login,getRandom,getSubCart,createBill}=require("../controllers/guestController")
+const express=require("express")
+const router=express.Router()
+
+router.route("/list/:offset").get(getList)
+router.route("/detail/:id").get(getDetail)
+router.route("/together/:id").get(getBuyTogether)
+router.route("/related/:id").get(getRelated)
+router.route("/room/:room/:offset").get(getByRoom)
+router.route("/category/:id/:offset").get(getList)
+router.route("/search/:key/:offset").get(getSearch)
+router.route("/cart").post(createCart)
+router.route("/cart/:id").put(updateCart)
+router.route("/cart/:id").delete(deleteCart)
+router.route("/subcart/:ids").get(getSubCart)
+router.route("/cart/:id").get(getCart)
+router.route("/signup").post(Signup)
+router.route("/login").post(Login)
+router.route("/random").get(getRandom)
+router.route("/bill/:ids").get(createBill)
+
+module.exports=router
