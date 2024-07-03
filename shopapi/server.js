@@ -1,12 +1,15 @@
 const express =require('express')
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpecs = require('./swagger');
 const app=express()
 
 app.use(cors()); // Sử dụng middleware CORS
 
 app.use(express.json())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 app.use("/",require("./routers/guestRoute"))
-
+app.use("/lank",require("./routers/adminRoute"))
 app.use("/categories",require("./routers/categoriesRoute"));
 app.use("/customers",require("./routers/customersRoute"));
 app.use("/order_details",require("./routers/order_detailsRoute"));

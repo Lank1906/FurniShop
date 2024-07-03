@@ -11,7 +11,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: 'https://ho-ng-b-i-1.paiza-user-free.cloud:5000',
+      url: 'https://localhost:5000',
       description: 'Development server',
     },
   ],
